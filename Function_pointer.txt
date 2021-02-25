@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
+float ed(int x1,int y1,int x2,int y2)
+{
+int a=pow(x2*x1,2);
+int b=pow(y2*y1,2);
+int c=a+b;
+return sqrt(c);
+}
+void area(float(*ptr)(int,int,int,int))
+{
+float f=(*ptr)(1,7,4,14);
+float k=3.14*f*f;
+printf("%f",ceil(k));
+}
+int main()
+{
+float(*ptr)(int,int,int,int);
+ptr=&ed;
+area(ptr);
+return 0;
+}
