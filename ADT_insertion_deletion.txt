@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct myarray
+{
+int t_size;
+int u_size;
+int* ptr;
+};
+void addarray(struct myarray* a,int t,int u)
+{
+a->t_size=t;
+a->u_size=u;
+a->ptr=(int*)malloc(t*sizeof(int));
+}
+void setarray(struct myarray* a)
+{
+int n;
+for(int i=0;i< a->u_size;i++)
+{
+scanf("%d",&n);
+a->ptr[i]=n;
+}
+}
+void showarray(struct myarray* a)
+{
+for(int i=0;i< a->u_size;i++)
+{
+printf("%d ",a->ptr[i]);
+}
+printf("\n");
+}
+void insertarray(struct myarray* a,int x,int v)
+{
+for(int i= a->u_size;i>x;i--)
+{
+a->ptr[i]=a->ptr[i-1];
+}
+a->ptr[x]=v;
+a->u_size=a->u_size+1;
+}
+void deletearray(struct myarray* a,int x)
+{
+for(int i=x;i< a->u_size-1;i++)
+{
+a->ptr[i]=a->ptr[i+1];
+}
+a->u_size=a->u_size-1;
+}
+int main()
+{
+struct myarray marks;
+addarray(&marks,100,20);
+setarray(&marks);
+printf("Our initial array\n");
+showarray(&marks);
+insertarray(&marks,3,56);
+printf("our array after inserting 56 at 3rd index position\n");
+showarray(&marks);
+deletearray(&marks,4);
+printf("our array after deleting the number at 4th index position\n");
+showarray(&marks);
+return 0;
+}
