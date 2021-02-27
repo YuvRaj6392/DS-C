@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+int data;
+struct node *next;
+};
+void traversal(struct node *ptr)
+{
+	while(ptr!=NULL)
+	{
+		printf("%d\n",ptr->data);
+		ptr=ptr->next;
+	}
+}
+void insertingafternode(struct node *ptr,struct node *ptr1)
+{
+	ptr1->data=99;
+	ptr1->next=ptr->next;
+	ptr->next=ptr1;
+	}
+void insertingbeginning(struct node *ptr,struct node *ptr1)
+{
+	ptr1->data=99;
+	ptr1->next=ptr;
+}
+void insertingatend(struct node *ptr,struct node *ptr1)
+{
+while(ptr->next!=NULL)
+{
+	ptr=ptr->next;
+}
+ptr->next=ptr1;
+ptr1->data=43;
+ptr1->next=NULL;
+}
+int main()
+{
+struct node *head;
+struct node *second;
+struct node *third;
+struct node *newarea;
+//adding the names
+head=(struct node *)malloc(sizeof(struct node));
+second=(struct node *)malloc(sizeof(struct node));
+newarea=(struct node *)malloc(sizeof(struct node));
+third=(struct node *)malloc(sizeof(struct node));
+head->data=65;
+head->next=second;
+second->data=56;
+second->next=third;
+third->data=64;
+third->next=NULL;
+insertingatend(head,newarea);
+traversal(head);
+return 0;
+}
