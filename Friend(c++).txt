@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+class complex1
+{
+int a,b;
+public:
+void setdata(int v1,int v2)
+{
+a=v1;
+b=v2;
+}
+void print(void)
+{
+cout<<a<<"+"<<b<<"i"<<endl;
+}
+void setsum(complex1 o1,complex1 o2)
+{
+a=o1.a+o2.a;
+b=o1.b+o2.b;	
+}
+friend complex1 sumcomplex(complex1 o1,complex1 o2);
+};
+complex1 sumcomplex(complex1 o1,complex1 o2)
+{
+complex1 c4;
+c4.setdata((o1.a+o2.a),(o1.b+o2.b));
+return c4;
+}	
+int main()
+{
+complex1 c1,c2,sum;
+c1.setdata(2,3);
+c1.print();
+c2.setdata(3,4);
+c2.print();
+sum=sumcomplex(c1,c2);
+sum.print();
+return 0;
+}
