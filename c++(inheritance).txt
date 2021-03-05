@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+class employee
+{
+public:
+int salary;
+employee(){}
+employee(int sal)
+{
+salary=sal;
+}
+};
+class program :public employee
+{
+	public:
+	int id;
+	program(){}
+	program(int idd,int sal)
+	{
+		id=idd;
+		salary=sal;
+	}
+};
+int main()
+{
+program p1(23,23000);
+cout<<p1.id<<endl<<p1.salary;
+return 0;
+}
