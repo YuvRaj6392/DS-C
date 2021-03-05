@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+class num
+{
+static	int count;
+public:
+num()
+{
+count++;
+cout<<"Constructor getting called for object "<<count<<endl;
+}
+~num()
+{
+cout<<"Destructor getting called for object"<<count<<endl;
+count--;
+}
+};
+int num::count=0;
+int main()
+{
+cout<<"We are in main"<<endl;
+num n1;
+{
+	cout<<"we are in a new block"<<endl;
+	num n2,n3;
+	cout<<"We are existing the block"<<endl;
+}
+cout<<"We again entered the main "<<endl;
+return 0;
+}
