@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+typedef long long int ll;
+using namespace std;
+int main()
+{
+int *ptr=new int(30);
+cout<<*ptr<<endl;
+
+int *arr=new int(3);
+arr[0]=30;
+arr[1]=50;
+arr[2]=70;
+delete[] arr;
+cout<<arr[0]<<endl<<arr[1]<<endl<<arr[2]<<endl;
+return 0;
+}
