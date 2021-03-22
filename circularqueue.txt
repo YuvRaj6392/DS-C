@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct queue1
+{
+int size;
+int f;
+int r;
+int *arr;
+};
+int isFull(struct queue1 *q)
+{
+	if((q->r+1)%q->size==q->f)
+	{
+		return 1;
+	}
+	return 0;
+}
+void enque(struct queue1 *q,int val)
+{
+	if(isFull(q))
+	{
+		printf("queue overflow");
+	}
+	else
+	{
+		q->r=(q->r+1)%q->size;
+		q->arr[q->r]=val;
+		printf("Insertion of %d done\n",q->arr[q->r]);
+	}
+}
+void deque1(struct queue1 *q)
+{
+	int a=0;
+	if(q->r==q->f)
+	{
+		printf("There is no element to deque\n");
+	}
+	else
+	{
+		q->f=(q->f+1)%q->size;
+		a=q->arr[q->f];
+		printf("%d has been deleted\n",a);
+	}
+} 
+		
+void traversal(struct queue1 *q)
+{
+	for(int i=q->f+1;i<= q->r;i++)
+	{
+		printf("%d\n",q->arr[i]);
+	}
+}
+int main()
+{
+struct queue1 *q;
+q=(struct queue1 *)malloc(sizeof(struct queue1));
+q->f=0;
+q->r=0;
+q->size=6;
+q->arr=(int *)malloc(q->size*sizeof(int));
+enque(q,45);
+enque(q,70);
+enque(q,19);
+enque(q,89);
+enque(q,90);
+deque1(q);
+enque(q,100);
+return 0;
+}
